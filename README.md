@@ -48,7 +48,7 @@ Este proyecto no es solo una prueba de red, es un ecosistema completo de juego:
 
 ## 🛠️ Detrás de Cámaras: Arquitectura y Tecnología
 
-Para los curiosos, desarrolladores o reclutadores, el proyecto separa estrictamente la capa de presentación de la capa de red:
+El proyecto separa estrictamente la capa de presentación de la capa de red:
 
 ### Frontend (Cliente): Unity & C# (.NET Standard 2.1)
 * Se encarga del renderizado 2D, animaciones, lectura de inputs, lógica de inventarios y la interfaz gráfica (UI).
@@ -69,11 +69,13 @@ Durante el desarrollo, superamos problemas críticos de concurrencia:
 2. **Tolerancia a Fallos (Heartbeats):** Se blindó el servidor de Rust con un patrón `match` exhaustivo para ignorar conexiones silenciosas y latidos de control (`Ping/Pong`), evitando que los hilos colapsaran.
 3. **Manejo de Embotellamientos:** Se escaló el buffer del *Broadcast Channel* a 1024 y se manejó el error `RecvError::Lagged` para descartar paquetes viejos sin desconectar a los jugadores bajo alta latencia.
 
-## 👨‍💻 Para Desarrolladores y Evaluadores: Compilación y Ejecución desde el Código Fuente
+---
 
-Si tienes el código fuente del proyecto y deseas compilar y ejecutar todo manualmente, sigue estos pasos:
+## 👨‍💻 Para Desarrolladores y Evaluadores: Compilación Manual
 
-### 1. Levantar el Servidor Local (Rust)
+Si tienes el código fuente del proyecto y deseas compilar y ejecutar todo manualmente desde cero, sigue estos pasos:
+
+### 1. Levantar el Servidor Local (Backend en Rust)
 Asegúrate de tener [Rust y Cargo](https://www.rust-lang.org/tools/install) instalados en tu sistema.
 ```bash
 cd Server
